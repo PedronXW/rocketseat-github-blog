@@ -1,9 +1,9 @@
 import {
-    ReactNode,
-    createContext,
-    useCallback,
-    useEffect,
-    useState,
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
 } from 'react'
 import { api } from '../lib/axios'
 import { User } from './UserContext'
@@ -25,7 +25,7 @@ export interface Reactions {
   eyes: number
 }
 
-type Issues = {
+export type Issue = {
   url: string
   repository_url: string
   labels_url: string
@@ -58,27 +58,28 @@ type Issues = {
 }
 
 interface IssuesContextType {
-  issues: Issues[]
+  issues: Issue[]
   totalIssues: number
   fetchIssues: (query: string) => void
 }
 
-export function IssuesProvider({ children }: IssuesContextProps) {
-  const [issues, setIssues] = useState<Issues[]>([])
-  const [totalIssues, setTotalIssues] = useState<number>(0)
+export const IssuesContext = createContext({} as IssuesContextType)
 
-  const IssuesContext = createContext({} as IssuesContextType)
+export function IssuesProvider({ children }: IssuesContextProps) {
+  const [issues, setIssues] = useState<Issue[]>([])
+  const [totalIssues, setTotalIssues] = useState<number>(0)
 
   const fetchIssues = useCallback(async (query: string) => {
     const result = await api.get(
       `search/issues?q=${query}%20repo:PedronXW/rocketseat-github-blog`,
     )
-    setIssues(result.data)
+    console.log(result.data)
+    setIssues(result.data.items)
     setTotalIssues(result.data.total_count)
   }, [])
 
   useEffect(() => {
-    fetchIssues('Dynamic')
+    fetchIssues('')
   }, [])
 
   return (

@@ -4,9 +4,9 @@ import { UserContext } from '../../contexts/UserContext'
 import { GithubNavButton } from '../GithubNavButton'
 import { SocialResume } from '../SocialResume'
 import {
-    ProfileResumeContainer,
-    ProfileResumeContent,
-    ProfileResumeHeader,
+  ProfileResumeContainer,
+  ProfileResumeContent,
+  ProfileResumeHeader,
 } from './style'
 
 export function ProfileResume() {

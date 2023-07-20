@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 export const ProfileResumeContainer = styled.div`
-  margin: -5.5rem auto;
+  margin-top: -5.5rem;
   display: flex;
   width: 54rem;
   gap: 2rem;
@@ -12,6 +12,8 @@ export const ProfileResumeContainer = styled.div`
   border-radius: 10px;
 
   > img {
+    width: 9.25rem;
+    height: 9.25rem;
     border-radius: 8px;
     margin-left: 0.5rem;
   }

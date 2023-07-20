@@ -7,6 +7,10 @@ export const ButtonContainer = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.blue};
 
+  &:hover {
+    border-bottom: 1px solid ${(props) => props.theme.blue};
+  }
+
   > span {
     color: ${(props) => props.theme.blue};
     font-size: 12px;
