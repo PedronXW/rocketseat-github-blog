@@ -13,6 +13,25 @@ export const GlobalStyles = createGlobalStyle`
         box-shadow: 0 0 0 2px ${(props) => props.theme['base-border']};
     }
 
+
+    *::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100rem;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 body{
     background-color: ${(props) => props.theme['base-background']};
     color: ${(props) => props.theme['base-text']};

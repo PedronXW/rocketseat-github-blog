@@ -57,7 +57,7 @@ export const SearchInput = styled.input`
 
 export const IssuesContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 26rem);
   margin-top: 3rem;
   width: 54rem;
   grid-gap: 2rem;

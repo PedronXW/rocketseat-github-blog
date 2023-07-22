@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import { useNavigate } from 'react-router-dom'
 import { Issue } from '../../contexts/IssuesContext'
 import { IssueContainer, IssueHeader } from './style'
 
@@ -8,8 +9,14 @@ interface IssueCellProps {
 }
 
 export function IssueCell({ issue }: IssueCellProps) {
+  const navigate = useNavigate()
+
   return (
-    <IssueContainer>
+    <IssueContainer
+      onClick={() => {
+        navigate('/' + issue.number)
+      }}
+    >
       <IssueHeader>
         <strong>{issue.title}</strong>
         <span>

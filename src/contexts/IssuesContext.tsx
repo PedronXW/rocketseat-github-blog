@@ -73,7 +73,6 @@ export function IssuesProvider({ children }: IssuesContextProps) {
     const result = await api.get(
       `search/issues?q=${query}%20repo:PedronXW/rocketseat-github-blog`,
     )
-    console.log(result.data)
     setIssues(result.data.items)
     setTotalIssues(result.data.total_count)
   }, [])

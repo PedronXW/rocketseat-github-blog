@@ -7,21 +7,19 @@ import { Container, IssuesContainer, SearchHeader, SearchInput } from './style'
 export function Home() {
   const [search, setSearch] = useState('')
 
-  const { fetchIssues } = useContext(IssuesContext)
+  const { fetchIssues, issues } = useContext(IssuesContext)
 
   function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value)
     fetchIssues(event.target.value)
   }
 
-  const { issues } = useContext(IssuesContext)
-
   return (
     <Container>
       <ProfileResume />
       <SearchHeader>
         <strong>Publicações</strong>
-        <span>{3} publicações</span>
+        <span>{issues.length} publicações</span>
       </SearchHeader>
       <SearchInput
         placeholder="Buscar conteúdo"
